@@ -9,14 +9,14 @@ class HomeController extends Controller
 {
     public function index() {
         
-        $api = new Core("kota","Kota Malang","4-11-2022");
+        $api = new Core("kota","Aceh","4-11-2022");
         return response()->json($api->getData());
 
     }
 
-    public function home() {
-        $api = new Core("kota","kota malang","4-11-2022");
+    public function jadwalSalat() {
+        $api = new Core("provinsi","Aceh","4-11-2022");
         $data = $api->getData();
-        return view("gui", ["data"=>$data]);
+        return view("jadwalSalat", ["data"=>$data]);
     }
 }
