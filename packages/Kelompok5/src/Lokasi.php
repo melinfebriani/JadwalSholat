@@ -12,6 +12,7 @@ class Lokasi implements DataModel{
 
     public function __construct($by){
         $this->by = $by;
+        $this->req = $lokasi;
         $this->res = array();
         $this->provinsi = array(
             'Aceh' => ["Banda Aceh","Langsa","Sabang"],
@@ -21,9 +22,9 @@ class Lokasi implements DataModel{
         );
     }
 
-    public function setRequest($r){
-        $this->req = $r;
-    }
+//     public function setRequest($r){
+//         $this->req = $r;
+//     }
 
     private function setResponse($r){
         array_push($this->res, $r);
