@@ -6,7 +6,6 @@ use Exception;
 
 class Core{
     private $baseurl;
-    private $by;
     private $lokasi;
     private $tanggal;
     private $jadwal;
@@ -14,13 +13,8 @@ class Core{
     
     function __construct ($by,$lokasi,$tanggal) {
         $this->jadwal = array();
-
-        $this->lokasi = new Lokasi($by);
-        $this->lokasi->setRequest($lokasi);
-
-        $this->tanggal = new Tanggal();
-        $this->tanggal->setRequest($tanggal);
-
+        $this->lokasi = new LokasiCreator($by, $lokasi);
+        $this->tanggal = new TanggalCreator($tanggal);
         $this->baseurl = "https://api.myquran.com/v1/sholat/jadwal/";
     }
 
@@ -56,7 +50,7 @@ class Core{
     }
 
     public function getData(){
-        $process = $this->process($this->lokasi->getResponse(),$this->tanggal->getResponse());
+        $process = $this->process($this->lokasi->response(),$this->tanggal->response());
         // return count($process);
         return count($process) > 1 ? $process : $process[0];
     }
