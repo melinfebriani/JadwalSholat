@@ -17,4 +17,6 @@ class HomeController extends Controller
         $data = $api->getData();
         return view("jadwalSalat", ["data"=>$data]);
     }
+
+    
 }
