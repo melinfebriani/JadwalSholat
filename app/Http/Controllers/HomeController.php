@@ -13,7 +13,7 @@ class HomeController extends Controller
     }
 
     public function jadwalSalat() {
-        $api = new Core("kota","Surabaya","25-11-2022");
+        $api = new Core("provinsi","Sumatera Selatan","01-12-2022");
         $data = $api->getData();
         return view("jadwalSalat", ["data"=>$data]);
     }
