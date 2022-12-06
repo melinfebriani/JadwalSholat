@@ -1,3 +1,1 @@
-<li class="list-group-item active" aria-current="true">
-    {{ $slot }}
-</li>
+<li class="list-group-item active" aria-current="true">{{$data->lokasi}}, {{$data->jadwal->date}}</li>
